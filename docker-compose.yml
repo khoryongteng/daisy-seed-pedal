@@ -1,0 +1,19 @@
+x-common: &common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  user: "${UID:-1000}:${GID:-1000}"
+  volumes:
+    - .:/workspace
+  working_dir: /workspace
+
+services:
+  workspace:
+    <<: *common
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+
+  build:
+    <<: *common
+    command: echo "Please specify a build command"
