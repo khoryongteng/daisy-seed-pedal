@@ -1,0 +1,42 @@
+{
+    "name": "Daisy Seed Pedal Development",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "vscode",
+    "updateRemoteUserUID": true,
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+
+    // Configure tool-specific properties
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "anysphere.cpptools",
+                "ms-vscode.cmake-tools",
+                "twxs.cmake",
+                "ms-azuretools.vscode-docker",
+                "eamodio.gitlens",
+                "ms-vscode-remote.remote-containers",
+                "marus25.cortex-debug"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "cmake.configureOnOpen": true,
+                "cmake.buildDirectory": "${workspaceFolder}/build"
+            }
+        }
+    },
+
+    // Mount Git configuration and credentials from host
+    "mounts": [
+        "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.git-credentials,target=/home/vscode/.git-credentials,type=bind,consistency=cached"
+    ],
+
+    // Set Git configuration environment variables
+    "remoteEnv": {
+        "GIT_EDITOR": "nano"
+    }
+}
