@@ -6,7 +6,10 @@
     "remoteUser": "vscode",
     "updateRemoteUserUID": true,
     "features": {
-        "ghcr.io/devcontainers/features/git:1": {}
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/sshd:1": {
+            "version": "latest"
+        }
     },
 
     // Configure tool-specific properties
@@ -29,14 +32,21 @@
         }
     },
 
-    // Mount Git configuration and credentials from host
+    // Mount Git configuration, credentials, and SSH keys from host
     "mounts": [
         "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
-        "source=${localEnv:HOME}/.git-credentials,target=/home/vscode/.git-credentials,type=bind,consistency=cached"
+        "source=${localEnv:HOME}/.git-credentials,target=/home/vscode/.git-credentials,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
     ],
 
     // Set Git configuration environment variables
     "remoteEnv": {
         "GIT_EDITOR": "nano"
-    }
+    },
+
+    // Enable SSH agent forwarding
+    "forwardAgent": true,
+
+    // Run commands after container is created
+    "postCreateCommand": "chmod 700 ~/.ssh && chmod 600 ~/.ssh/* 2>/dev/null || true"
 }
