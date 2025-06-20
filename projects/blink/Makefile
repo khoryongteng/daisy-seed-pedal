@@ -1,5 +1,5 @@
 # Project Name
-TARGET = Blink
+TARGET = blink
 
 # Sources
 CPP_SOURCES = blink.cpp 
