@@ -3,8 +3,8 @@
 BUILD_TYPE=${1:-""}
 
 START_DIR=$PWD
-LIBDAISY_DIR=$PWD/libDaisy
-DAISYSP_DIR=$PWD/DaisySP
+LIBDAISY_DIR=$PWD/lib/libDaisy
+DAISYSP_DIR=$PWD/lib/DaisySP
 
 echo "building libDaisy . . ."
 cd "$LIBDAISY_DIR"

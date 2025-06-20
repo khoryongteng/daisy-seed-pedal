@@ -5,8 +5,8 @@ TARGET = blink
 CPP_SOURCES = blink.cpp 
 
 # Library Locations
-LIBDAISY_DIR = ../../libDaisy
-DAISYSP_DIR = ../../DaisySP
+LIBDAISY_DIR = ../../lib/libDaisy
+DAISYSP_DIR = ../../lib/DaisySP
 
 # Core location, and generic makefile.
 SYSTEM_FILES_DIR = $(LIBDAISY_DIR)/core
