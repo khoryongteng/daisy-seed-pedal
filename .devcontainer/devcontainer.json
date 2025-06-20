@@ -17,6 +17,7 @@
         "vscode": {
             "extensions": [
                 "anysphere.cpptools",
+                "ms-vscode.makefile-tools",
                 "ms-vscode.cmake-tools",
                 "twxs.cmake",
                 "ms-azuretools.vscode-docker",
